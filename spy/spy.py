@@ -11,7 +11,7 @@ class SPY:
 
     async def paginate(self, url: str, links_query: str, concat: bool = False) -> Self:
         page = await self.crawler.get_all([url])
-        urls = page[0].css(links_query).getall()
+        urls = page[0].parse_all(links_query)
 
         if concat:
             urls = [url + path for path in urls]
@@ -24,10 +24,5 @@ class SPY:
         self.pages = await self.crawler.get_all(self.urls)
 
     def get_items_group(self, query: str, model: dict) -> pd.DataFrame:
-        dataset = []
-        
-        for page in self.pages:
-            dataset += self.parser.get_items_group(query, model, page)
-
+        dataset = self.pages.parse_item_group_for_all(query, model)
         return pd.DataFrame.from_records(dataset)
-        

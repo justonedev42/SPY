@@ -1,6 +1,7 @@
 from httpx import AsyncClient
-from parsel import Selector
 from typing import Optional
+from .page_set import PageSet
+from .page import Page
 import asyncio
 
 class Crawler:
@@ -15,16 +16,16 @@ class Crawler:
             proxy = proxy
         )
 
-    async def fetch(self, url: str) -> Selector:
+    async def fetch(self, url: str) -> Page:
         response = await self.client.get(url)
-        return Selector(text = response.text)
+        return Page(response.text)
     
-    async def get_all(self, urls: list[str]) -> list[Selector]:
+    async def get_all(self, urls: list[str]) -> PageSet[Page]:
         tasks = []
 
         for url in urls:
             tasks.append(self.fetch(url))
 
-        pages = await asyncio.gather(*tasks)
+        pages = PageSet(await asyncio.gather(*tasks))
 
         return pages
