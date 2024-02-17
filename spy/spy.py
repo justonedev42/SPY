@@ -25,6 +25,7 @@ class SPY:
 
     def get_items_group(self, query: str, model: dict) -> pd.DataFrame:
         dataset = []
+        
         for page in self.pages:
             dataset += self.parser.get_items_group(query, model, page)
 

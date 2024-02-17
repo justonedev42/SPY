@@ -4,8 +4,8 @@ from typing import Optional
 import asyncio
 
 class Crawler:
-    def __init__(self, proxy: str = None) -> None:
-        headers={
+    def __init__(self, proxy: Optional[str] = None) -> None:
+        headers = {
             "User-Agent": "Mozilla/5.0 (iPad; CPU OS 12_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148"
         }
 
