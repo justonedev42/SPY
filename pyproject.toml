@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "spy_crawler"
-version = "0.1.1"
+version = "0.1.2"
 description = ""
 authors = ["Rafael Fonseca <justonedev42@gmail.com>"]
 readme = "README.md"
