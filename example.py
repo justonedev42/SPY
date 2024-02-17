@@ -1,5 +1,5 @@
 import asyncio
-from spy import SPY
+from s_py import SPY
 
 async def main():
     app = SPY(proxy='http://169.254.1.1:8080')
