@@ -1,5 +1,5 @@
-from s_py.web_crawler import Crawler
-from s_py.web_parser import Parser
+from spy_crawler.web_crawler import Crawler
+from spy_crawler.web_parser import Parser
 import pandas as pd
 
 class SPY:
