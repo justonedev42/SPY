@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "spy"
+name = "s.py"
 version = "0.1.0"
 description = ""
 authors = ["Rafael Fonseca <justonedev42@gmail.com>"]
